@@ -31,7 +31,7 @@ const resetGame = () => {
 
 checkNumber.addEventListener('click', () => {
   const guessNumber = +guess.value;
-  if (!guessNumber) {
+  if (!guessNumber || guessNumber < 0) {
     displayMessage('⛔️ No Number...');
     return;
   }
@@ -53,8 +53,8 @@ checkNumber.addEventListener('click', () => {
       displayMessage(
         guessNumber < ramdomNumber ? '📉 Too low!' : '📈 Too high!'
       );
-      score.textContent = attempts;
       attempts--;
+      score.textContent = attempts;
     }
   }
 });
